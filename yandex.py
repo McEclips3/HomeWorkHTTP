@@ -22,7 +22,8 @@ class YandexDisk:
 
     def upload_file(self, file_path, name):
         href = self._get_link(file_path=file_path)
-        response = requests.put(href, data=open(name, 'rb'))
-        response.raise_for_status()
-        if response.status_code == 201:
-            print('Файл залит')
+        with open(name, 'rb') as f:
+            response = requests.put(href, data=f)
+            response.raise_for_status()
+            if response.status_code == 201:
+                print('Файл залит')

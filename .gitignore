@@ -1,3 +1,4 @@
 .idea/
 lol.py
 __pycache__/
+tokens.env
